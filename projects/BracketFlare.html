@@ -113,21 +113,19 @@
                 Abstract
             </div>
             <div class="details" style="text-align: justify" ;>
-                Reflective flare is the lens artifact caused by internal reflections of lenses.
-                With multiple reflections, intense light sources project groups of bright spots 
-                (a.k.a. ghosting effect) on the photo, affecting the visual quality.
-                Removing reflective flare is highly desirable yet challenging.
-                Many existing methods mainly use hand-crafted features to detect bright spots.
-                They usually fail in detecting the reflective flares produced by different shapes 
-                of light and even mistakenly remove the light sources in multiple light situations.
-                To solve this problem, we propose an optical center symmetry prior that the reflective 
-                flare and light source are always symmetrical around the lens's optical center. 
-                This prior advances in precisely locating the reflective flare's proposal region and is applicable to most smartphone cameras.
-                Inspired by this prior, we build up the first reflective flare removal dataset, 
-                BracketFlare which contains diverse and realistic flare patterns.
-                We use continuous bracketing to capture the reflective flare's pattern in the 
-                underexposed image and combine it with its normally exposed counterpart to synthesize a flare-corrupted and flare-free pair.
-                With the dataset, neural networks can be easily trained to remove the reflective flares.
+                Reflective flare is a phenomenon that occurs when light reflects inside lenses, causing bright spots or a ''ghosting effect'' in photos, 
+                which can impact their quality. Eliminating reflective flare is highly desirable but challenging. 
+                Many existing methods rely on manually designed features to detect these bright spots, 
+                but they often fail to identify reflective flares created by various types of light 
+                and may even mistakenly remove the light sources in scenarios with multiple light sources. 
+                To address these challenges, we propose an optical center symmetry prior, 
+                which suggests that the reflective flare and light source are always symmetrical around the lens's optical center. 
+                This prior helps to locate the reflective flare's proposal region more accurately and can be applied to most smartphone cameras.
+                Building on this prior, we create the first reflective flare removal dataset called BracketFlare, 
+                which contains diverse and realistic reflective flare patterns. We use continuous bracketing 
+                to capture the reflective flare pattern in the underexposed image and combine it with a normally exposed image 
+                to synthesize a pair of flare-corrupted and flare-free images. 
+                With the dataset, neural networks can be trained to remove the reflective flares effectively. 
                 Extensive experiments demonstrate the effectiveness of our method on both synthetic and real-world datasets.
             </div>
         </section>
@@ -153,7 +151,7 @@
                         </td>
                         <td>
                             <div class='links-container'>
-                                <a href='https://ykdai.github.io/projects/BracketFlare.html' target="_blank"><img class='links-cover'
+                                <a href='https://drive.google.com/file/d/1UBGvI_KCPkEyCNQkFrNNPY5LnXjAm2Oi' target="_blank"><img class='links-cover'
                                         src='./Packages/BracketFlare/Data/Google_Drive.png' alt='drive icon' width="220"></a>
                             </div>
                         </td>
@@ -162,7 +160,7 @@
                     <tr>
                         <td><a href='https://ykdai.github.io/projects/BracketFlare.html' target="_blank">Paper: Coming soon</a></td>
                         <td><a href='https://github.com/ykdai/BracketFlare' target="_blank">Code</a></td>
-                        <td><a href='https://ykdai.github.io/projects/BracketFlare.html' target="_blank">Dataset: Coming soon</a></td>
+                        <td><a href='https://drive.google.com/file/d/1UBGvI_KCPkEyCNQkFrNNPY5LnXjAm2Oi' target="_blank">Dataset</a></td>
                         
                     </tr>
                     
@@ -181,7 +179,7 @@
                     <center><iframe width="1080" height="608" src="https://www.youtube.com/embed/FM8kAM13zUA" title="YouTube video player" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen=""></iframe></center>
+                    allowfullscreen></iframe></center>
             </div>
         </section>
 
@@ -215,7 +213,8 @@
             <p>We referred to the project page of <a href="https://nerfies.github.io/">Nerfies</a>, <a
                     href="https://hongfz16.github.io/projects/AvatarCLIP.html">AvatarCLIP</a> and <a href="https://yumingj.github.io/projects/Text2Human.html">Text2Human</a> when creating this
                 project page.</p>
-            <p> This project is licensed under NTU S-Lab License 1.0. Redistribution and use should follow this license.</p>
+            <p> This project is licensed under <a
+                href="https://github.com/ykdai/BracketFlare/blob/main/LICENSE">NTU S-Lab License 1.0</a>. Redistribution and use should follow this license.</p>
         </section>
 
     </div>
