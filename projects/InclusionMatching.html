@@ -42,47 +42,6 @@
 </head>
 <body>
 
-<!--
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav>
--->
 
 <!--
 <section class="hero teaser">
@@ -230,19 +189,61 @@
   </div>
 </section>
 
+<!-- Paint Bucket Colorization. -->
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Paint Bucket Colorization</h2>
         <div class="content has-text-justified">
           <p>
             Colorizing line art is a pivotal task in the production of hand-drawn cel animation. 
-            This typically involves digital painters using a paint bucket tool to manually color each segment enclosed by lines, 
-            based on RGB values predetermined by a color designer. 
-            This frame-by-frame process is both arduous and time-intensive.
+            Digital painters use a paint bucket tool to manually color each segment enclosed by lines, 
+            based on RGB values predetermined by color designers. 
+            This frame-by-frame process, named <b>Paint Bucket Colorization</b>, is both arduous and time-intensive.
           </p>
+
+
+          <video id="paintbucket_colorization" autoplay controls muted loop playsinline widths="100%">
+            <source src="Packages/InclusionMatching/static/videos/demo.mp4"
+                    type="video/mp4">
+          </video>
+          <div class="columns is-centered has-text-centered">
+            <br>
+            <h2 class="title is-3">Abstract</h2>
+          </div>
+          <p>
+            Current automated colorization methods mainly focus on segment matching. 
+            This technique migrates colors from a reference to the target frame 
+            by aligning features within line-enclosed segments across frames. 
+            However, issues like occlusion and wrinkles in animations often disrupt these direct correspondences, leading to mismatches.
+            In this work, we introduce a new learning-based inclusion matching pipeline, 
+            which directs the network to comprehend the inclusion relationships between segments 
+            rather than relying solely on direct visual correspondences.
+            Our method features a coarse-to-fine estimation module that integrates a coarse color warping module 
+            with a fine matching module, enabling more nuanced and accurate colorization.
+          </p>
+          <p>
+            To facilitate the training of this network, we have developed a unique dataset, 
+            referred to as PaintBucket-Characters. This dataset includes rendered line arts alongside their colorized counterparts, featuring various 3D characters.
+            Extensive experiments demonstrate the effectiveness and superiority of our method over existing techniques.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!--/ Abstract.
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
           <p>
             Current automated methods mainly focus on segment matching. 
             This technique migrates colors from a reference to the target frame 
@@ -264,44 +265,9 @@
     </div>
   </div>
 </section>
-    <!--/ Abstract. -->
+-->
 
-    <!-- Re-rendering. -->
-
-    <section class="section">
-      <div class="container is-max-desktop">
-        <!-- Abstract. -->
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Paint Bucket Colorization</h2>
-            
-          </div>
-        </div>
-      <div class="content has-text-centered">
-        <!--<video id="paint_bucket_colorization"
-              controls
-              muted
-              preload
-              playsinline
-              width="75%">-->
-              <div class="content has-text-justified">
-                <p>
-                  The drawn line arts are forwarded to digital painters. 
-                  The painters use a paint bucket tool and a designated color palette to fill each line-enclosed segment, 
-                  including the color lines.
-                  This process is known as paint bucket colorization.
-                </p>
-                </p>
-              </div>
-          <video id="paintbucket_colorization" autoplay controls muted loop playsinline widths="100%">
-          <source src="Packages/InclusionMatching/static/videos/demo.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </section>
-    <!--/ Re-rendering. -->
-
+<!--/ Re-rendering. -->
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="columns is-centered has-text-centered">
@@ -365,20 +331,25 @@
 </section>
 
 
-    <!-- Paper video. -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Video</h2>
-          <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/nNnPUItGvSo?rel=0&amp;showinfo=0"
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<!-- Paper video. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <!--<div class="column is-four-fifths"> -->
+        <div class="columns is-centered has-text-centered">
+            <h2 class="title is-3">Video</h2> 
+            <br>
         </div>
       </div>
+      <div class="content has-text-justified">
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/nNnPUItGvSo?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
     </div>
   </div>
-    <!--/ Paper video. -->
+
+<!--/ Paper video. -->
 
 
 
