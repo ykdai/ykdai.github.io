@@ -1,7 +1,7 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
 var INTERP_BASE = "Packages/InclusionMatching/static/interpolation/nicca_girl";
-var NUM_INTERP_FRAMES = 18;
+var NUM_INTERP_FRAMES = 17;
 
 var INTERP_BASE2 = "Packages/InclusionMatching/static/interpolation/dog";
 var NUM_INTERP_FRAMES2 = 19;
