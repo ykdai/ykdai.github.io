@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Learning Inclusion Matching for Animation Paint Bucket Colorization.">
+  <meta name="keywords" content="Animation, Colorization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning Inclusion Matching for Animation Paint Bucket Colorization</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="Packages/InclusionMatching/static/css/bulma.min.css">
+  <link rel="stylesheet" href="Packages/InclusionMatching/static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="Packages/InclusionMatching/static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="Packages/InclusionMatching/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="Packages/InclusionMatching/static/css/index.css">
+  <link rel="icon" href="Packages/InclusionMatching/static/images/PB.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="Packages/InclusionMatching/static/js/fontawesome.all.min.js"></script>
+  <script src="Packages/InclusionMatching/static/js/bulma-carousel.min.js"></script>
+  <script src="Packages/InclusionMatching/static/js/bulma-slider.min.js"></script>
+  <script src="Packages/InclusionMatching/static/js/index.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://ykdai.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://lisiyao21.github.io/projects/AnimeRun">
+            AnimeRun
+          </a>
+          <a class="navbar-item" href="https://github.com/lisiyao21/AnimeInbet">
+            AnimeInbet
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!--
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="Packages/InclusionMatching/static/images/banner.png" alt="Teaser Image" height="100%">
+      <h2 class="subtitle has-text-centered">
+      </h2>
+    </div>
+  </div>
+</section>
+-->
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Learning Inclusion Matching for Animation Paint Bucket Colorization</h1>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ykdai.github.io/">Yuekun Dai</a>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://shangchenzhou.com/">Shangchen Zhou</a>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/dienachtderwelt/">Qinyue Li</a>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://li-chongyi.github.io/">Chongyi Li</a>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.mmlab-ntu.com/person/ccloy/">Chen Change Loy</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">S-lab, Nanyang Technological University</span>
+          </div>
+          
+          <!--
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ykdai.github.io/">Yuekun Dai</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://shangchenzhou.com/">Shangchen Zhou</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/dienachtderwelt/">Qinyue Li</a><sup>1</sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://li-chongyi.github.io/">Chongyi Li</a>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://www.mmlab-ntu.com/person/ccloy/">Chen Change Loy</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">S-lab, Nanyang Technological University</span>
+          </div>-->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2403.18342"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.18342"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=nNnPUItGvSo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ykdai/BasicPBC"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ykdai/BasicPBC/tree/main/dataset"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="Packages/InclusionMatching/static/images/teaser.png" alt="Teaser Image" width="100%">
+        <p> Our project streamlines the animation colorization process by requiring painters to colorize just one frame, after which the
+          algorithm autonomously propagates the color to subsequent frames. 
+          &copy; drawn by <a href="https://kid-nicca.gumroad.com/l/SYzVZ?layout=profile">Nicca (Sriprachum Kongwisawamit)</a>, used with artist permission.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Paint Bucket Colorization. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Paint Bucket Colorization</h2>
+        <div class="content has-text-justified">
+          <p>
+            Colorizing line art is a pivotal task in the production of hand-drawn cel animation. 
+            Digital painters use a paint bucket tool to manually color each segment enclosed by lines, 
+            based on RGB values predetermined by color designers. 
+            This frame-by-frame process, named <b>Paint Bucket Colorization</b>, is both arduous and time-intensive.
+          </p>
+
+
+          <video id="paintbucket_colorization" autoplay controls muted loop playsinline widths="100%">
+            <source src="Packages/InclusionMatching/static/videos/demo.mp4"
+                    type="video/mp4">
+          </video>
+          <div class="columns is-centered has-text-centered">
+            <br>
+            <h2 class="title is-3">Abstract</h2>
+          </div>
+          <p>
+            Current automated colorization methods mainly focus on segment matching. 
+            This technique migrates colors from a reference to the target frame 
+            by aligning features within line-enclosed segments across frames. 
+            However, issues like occlusion and wrinkles in animations often disrupt these direct correspondences, leading to mismatches.
+            In this work, we introduce a new learning-based inclusion matching pipeline, 
+            which directs the network to comprehend the inclusion relationships between segments 
+            rather than relying solely on direct visual correspondences.
+            Our method features a two-stage estimation module that integrates a coarse color warping module 
+            with an inclusion matching module, enabling more nuanced and accurate colorization.
+          </p>
+          <p>
+            To facilitate the training of this network, we have developed a unique dataset, 
+            referred to as PaintBucket-Character. This dataset includes rendered line arts alongside their colorized counterparts, featuring various 3D characters.
+            Extensive experiments demonstrate the effectiveness and superiority of our method over existing techniques.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!--/ Abstract.
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            Current automated methods mainly focus on segment matching. 
+            This technique migrates colors from a reference to the target frame 
+            by aligning features within line-enclosed segments across frames. 
+            However, issues like occlusion and wrinkles in animations often disrupt these direct correspondences, leading to mismatches.
+            In this work, we introduce a new learning-based inclusion matching pipeline, 
+            which directs the network to comprehend the inclusion relationships between segments 
+            rather than relying solely on direct visual correspondences.
+            Our method features a coarse-to-fine estimation module that integrates a coarse color warping module 
+            with a fine matching module, enabling more nuanced and accurate colorization.
+          </p>
+          <p>
+            To facilitate the training of this network, we have developed a unique dataset, 
+            referred to as PaintBucket-Characters. This dataset includes rendered line arts alongside their colorized counterparts, featuring various 3D characters.
+            Extensive experiments demonstrate the effectiveness and superiority of our method over existing techniques.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<!--/ Re-rendering. -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="Packages/InclusionMatching/static/videos/bocchi.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="Packages/InclusionMatching/static/videos/ichika.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="Packages/InclusionMatching/static/videos/Ty.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="Packages/InclusionMatching/static/videos/michelle.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="Packages/InclusionMatching/static/videos/timmy.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="Packages/InclusionMatching/static/videos/bocchi2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="Packages/InclusionMatching/static/videos/ryo.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="Packages/InclusionMatching/static/videos/Aj.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper video. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <!--<div class="column is-four-fifths"> -->
+        <div class="columns is-centered has-text-centered">
+            <h2 class="title is-3">Video</h2> 
+            <br>
+        </div>
+      </div>
+      <div class="content has-text-justified">
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/nNnPUItGvSo?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+  </div>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Visual Comparison</h2>
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Result based on previous frame's ground truth</h3>
+        <div class="content has-text-justified">
+           <p>
+            Compared with previous <a href="https://cadmium.app/">Cadmium</a> application and <a href="https://github.com/lisiyao21/AnimeRun">AnimeRun</a>,
+            our method can achieve more robust colorization results. <br/>
+            &copy; <a href="https://kid-nicca.gumroad.com/l/SYzVZ?layout=profile">Nicca </a>
+          </p>
+        </div>
+        <div class="column interpolation-video-column">
+          <div id="interpolation-image-wrapper">
+            Loading...
+          </div>
+          <input class="slider is-fullwidth is-large is-info"
+                 id="interpolation-slider"
+                 step="1" min="0" max="100" value="0" type="range">
+        </div>
+
+        <h3 class="title is-4">Color propagation result based on the first frame</h3>
+        <div class="content has-text-justified">
+          <p>
+            By propagating the color from the previous frame, our method can colorize a frame sequence based on the given first frame. <br/>
+            &copy; <a href="https://www.clipstudio.net/en/animation/">Clip Studio Paint</a>
+          </p>
+        </div>
+        <div class="column interpolation-video-column">
+          <div id="interpolation-image-wrapper2">
+            Loading...
+          </div>
+          <input class="slider is-fullwidth is-large is-info"
+                 id="interpolation-slider2"
+                 step="1" min="0" max="100" value="0" type="range">
+        </div>
+
+        
+        <!--/ More Results. -->
+        <section class="section">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+              <!-- <div class="column is-four-fifths"> -->
+              <div class="columns is-centered has-text-centered">
+                <h2 class="title is-3">More results</h2>
+                <br>
+              </div>
+            </div>
+            <div class="content has-text-justified">
+              <div class="language-selection" style="text-align: center; margin-bottom: 18px;">
+                <a href="#" class="language-link" onclick="changeVideo('english', event)">English</a>/
+                <a href="#" class="language-link" onclick="changeVideo('japanese', event)">日本語</a>
+              </div>
+              <div class="publication-video">
+                <iframe id="video-frame" src="https://www.youtube.com/embed/LwSOdOvodBE?rel=0&amp;showinfo=0"
+                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <style>
+          .language-selection a {
+            color: rgb(32, 156, 238);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+          }
+        
+          .language-selection a.clicked {
+            color: black;
+            pointer-events: none;
+            cursor: default;
+          }
+        </style>
+        
+        <script>
+          function changeVideo(language, event) {
+            event.preventDefault();
+            var videoFrame = document.getElementById('video-frame');
+            var links = document.querySelectorAll('.language-link');
+        
+            if (language === 'english') {
+              videoFrame.src = "https://www.youtube.com/embed/LwSOdOvodBE?rel=0&amp;showinfo=0";
+            } else if (language === 'japanese') {
+              videoFrame.src = "https://www.youtube.com/embed/ogsghSNt6IE?rel=0&amp;showinfo=0";
+            }
+        
+            // Set all links to be clickable again and remove clicked class
+            links.forEach(function(link) {
+              link.classList.remove('clicked');
+              link.style.pointerEvents = 'auto';
+            });
+        
+            // Disable the clicked link
+            event.target.classList.add('clicked');
+            event.target.style.pointerEvents = 'none';
+          }
+        </script>
+
+        <br>
+        <br>
+
+        <h2 class="title is-3">Failure cases</h2>
+
+        <div class="columns is-centered">
+
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4">Large deformation</h2>
+              <p>
+                Our method still struggles with exaggerated motion or large deformation, such as the moment when the robot hand clenches into a fist. <br/>
+                &copy; <a href="https://www.clipstudio.net/en/animation/">Clip Studio Paint</a> and <a href="https://mecha-ude.com/">Mecha-Ude</a>
+              </p>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="Packages/InclusionMatching/static/videos/hand.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <!--/ Visual Effects. -->
+    
+          <!-- Matting. -->
+          <div class="column">
+            <h2 class="title is-4">Occlusion</h2>
+            <div class="columns is-centered">
+              <div class="column content">
+                <p>
+                  Our method necessitates the presence of all segments from the target frame in the reference frame, 
+                  making it difficult to colorize new segments in the scenes like turning around. <br/>
+                  &copy; <a href="https://books.apple.com/jp/book/%E3%82%A2%E3%83%8B%E3%83%A1%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%97%E3%81%8A%E3%82%8A/id1557682659">Kyoto Animation</a>
+                </p>
+                <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                  <source src="Packages/InclusionMatching/static/videos/kyogirl.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+        <!--/ Matting. -->
+
+
+        <br/>
+        
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{InclusionMatching2024,
+  title     = {Learning Inclusion Matching for Animation Paint Bucket Colorization},
+  author    = {Dai, Yuekun and Zhou, Shangchen and Li, Qinyue and Li, Chongyi and Loy, Chen Change},
+  journal   = {CVPR},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="Packages/InclusionMatching/static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
