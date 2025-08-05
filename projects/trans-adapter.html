@@ -125,8 +125,9 @@
   </div>
 </section>
 
+
 <!-- Paint Bucket Colorization. -->
-<section class="section">
+<section class="section" style="background-color: rgb(240,240,240);">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -151,6 +152,55 @@
     </div>
   </div>
 </section>
+
+
+<section class="method">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">Method</h2>
+      <img src="Packages/TransAdapter/Data/pipeline.png" alt="Method Pipeline" width="100%" style="display: block; margin-left: auto; margin-right: auto;">
+      <p class="is-size-6" style="margin-top: 1em; color: #666; text-align: left;">
+          Trans-Adapter can be flexibly integrated into different image inpainting frameworks. 
+          We demonstrate two instantiations: (a) SD-Inpainting, which expands the input channels to encode the additional mask and masked image, and (b) BrushNet, which introduces an inpainting branch that accepts the inpainting conditioning. 
+          In BrushNet, the inpainting conditioning is the same as the SD-Inpainting's input. Trans-Adapter enables these pipelines to process transparent images by incorporating trainable cross-domain self-attention, spatial alignment modules, and alpha map LoRA.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: rgb(240,240,240);">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">Benchmark</h2>
+      <img src="Packages/TransAdapter/Data/benchmark.png" alt="LayerBench Benchmark" width="100%" style="display: block; margin-left: auto; margin-right: auto;">
+      <p class="is-size-6" style="margin-top: 1em; color: #666; text-align: left;">
+        We introduce a new benchmark, LayerBench, which comprises masked images paired with their corresponding text prompts (mask-simple). 
+        To comprehensively evaluate our method's inpainting capabilities on both natural and generated images, LayerBench is divided into two subsets: LayerBench-Natural and LayerBench-Generated, each containing 400 images. 
+        The LayerBench-Natural subset features real-world images collected from online PNGstocks and <a href="https://sites.google.com/view/deepimagematting" target="_blank">matting datasets</a>. 
+        For LayerBench-Generated, 200 images with high AestheticScore are selected from the <a href="https://ryanndagreat.github.io/MAGICK/" target="_blank">MAGICK</a> dataset, while the remaining 200 images are generated using LayerDiffusion applied to SDXL and the community model RealVisXL-V4.0.
+        Our benchmark presents a variety of challenging scenarios, including images with intricate alpha channel structures, transparent objects, and diverse artistic styles. 
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">Visualization Result</h2>
+      <p class="is-size-6" style="margin-top: 1em; color: #666; text-align: left;">
+        We compare our Trans-Adapter on transparent image inpainting using SD-Inpainting framework with different image matting and image matting and dichotomous image
+        segmentation methods. Our approach simultaneously generates both the alpha map and RGB, it performs well even for complex alpha details and transparent objects.
+        <br>
+        <br>
+      </p>
+      <img src="Packages/TransAdapter/Data/sd15_result.png" alt="Visualization Result" width="85%" style="display: block; margin-left: auto; margin-right: auto;">
+      
+    </div>
+  </div>
+</section>
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
