@@ -80,6 +80,20 @@
     .footer {
       border-top: 1px solid rgb(60, 60, 60);
     }
+
+    .publication-links .button.is-dark {
+      background-color: rgb(50, 50, 50) !important;
+      color: #f0f0f0 !important;
+    }
+
+    .publication-links .button.is-dark span,
+    .publication-links .button.is-dark .icon i {
+      color: #f0f0f0 !important;
+    }
+
+    .publication-links .button.is-dark:hover {
+      background-color: rgb(70, 70, 70) !important;
+    }
   </style>
 </head>
 <body>
@@ -92,11 +106,86 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Linear Image Generation by Synthesizing Exposure Brackets</h1>
-          
+
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Anonymous Authors</span>
+            <span class="author-block">
+              <a href="https://ykdai.github.io/">Yuekun Dai</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://ztzhang.info/">Zhoutong Zhang</a><sup>2</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://shangchenzhou.com/">Shangchen Zhou</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.nxzhao.com/">Nanxuan Zhao</a><sup>3</sup></span>
           </div>
-          
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>S-Lab, Nanyang Technological University&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Adobe NextCam&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>3</sup>Adobe Research</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="font-weight: bold;">CVPR 2026</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5em;">
+            <span class="author-block" style="color: #b0b0b0; font-style: italic;">Paper and code will be released soon.</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ykdai/RawGen"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+
           <p class="is-size-6" style="margin-top: 1.5em; margin-bottom: 1em; color: #b0b0b0; text-align: center;">
             Due to the higher dynamic range of linear images, they can be rendered as HDR images. This page mainly showcases these rendered HDR images.
           </p>
@@ -333,11 +422,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{anonymous2025linear,
+    <pre><code>@inproceedings{dai2026linear,
   title     = {Linear Image Generation by Synthesizing Exposure Brackets},
-  author    = {Anonymous},
-  journal   = {Under Review},
-  year      = {2025},
+  author    = {Dai, Yuekun and Zhang, Zhoutong and Zhou, Shangchen and Zhao, Nanxuan},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026},
 }</code></pre>
   </div>
 </section>
