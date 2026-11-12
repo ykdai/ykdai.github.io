@@ -6,8 +6,8 @@
   const shortKeys={overall_quality:'bestOverall',image_alignment:'bestImage',text_alignment:'bestText'};
   const badgeKeys={overall_quality:'badgeOverall',image_alignment:'badgeImage',text_alignment:'badgeText'};
   const $=id=>document.getElementById(id), storageKey='vfx-study-demo:'+data.version, languageKey='vfx-study-language';
-  let language='zh';
-  try {if(localStorage.getItem(languageKey)==='en')language='en';} catch (_) {}
+  let language='en';
+  try {const savedLanguage=localStorage.getItem(languageKey);if(['en','zh'].includes(savedLanguage))language=savedLanguage;} catch (_) {}
   const bindings=new Map();
   function t(key, values={}) {
     const pair=window.STUDY_TEXT[key];
