@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="VFXGen: Procedural VFX Generation with AI Agents.">
+  <meta name="keywords" content="VFXGen, Procedural VFX, Visual Effects, AI Agents">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Procedural VFX Generation with AI Agents</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="Packages/scripts/static/css/bulma.min.css">
+  <link rel="stylesheet" href="Packages/scripts/static/css/index.css">
+
+  <style>
+    .publication-authors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .publication-affiliations {
+      margin-top: 1.5rem;
+      font-family: 'Google Sans', sans-serif;
+      line-height: 1.8;
+    }
+
+    .publication-authors sup,
+    .publication-affiliations sup {
+      margin-left: 0.15em;
+      margin-right: 0.2em;
+    }
+
+    .publication-links {
+      margin-top: 1.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .publication-title.title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="paper-title">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 id="paper-title" class="title is-1 publication-title">Procedural VFX Generation with AI Agents</h1>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Yuekun Dai<sup>1</sup></span>
+                <span class="author-block">Weifeng Chen<sup>2</sup></span>
+                <span class="author-block">Yijun Li<sup>2</sup></span>
+                <span class="author-block">Xinyu Gong<sup>2</sup></span>
+                <span class="author-block">Dong Liu<sup>2</sup></span>
+                <span class="author-block">Shangchen Zhou<sup>3</sup></span>
+                <span class="author-block">Chen Change Loy<sup>1</sup></span>
+              </div>
+
+              <div class="is-size-5 publication-affiliations">
+                <p><sup>1</sup>Nanyang Technological University (<a href="https://www.ntu.edu.sg/">ntu.edu.sg</a>)</p>
+                <p><sup>2</sup>Adobe Systems (<a href="https://www.adobe.com/">adobe.com</a>)</p>
+                <p><sup>3</sup>Imperial College London (<a href="https://www.ic.ac.uk/">ic.ac.uk</a>)</p>
+              </div>
+
+              <div class="publication-links">
+                <a href="Packages/VFXGen/user_study/index.html"
+                   class="button is-normal is-rounded is-dark"
+                   aria-label="Participate in the VFXGen user study">
+                  <span>User Study</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="abstract-title" style="background-color: rgb(240, 240, 240);">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h2 id="abstract-title" class="title is-3 has-text-centered">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Visual effects (VFX) are essential to modern film and game production, yet existing generative approaches primarily synthesize flattened videos, offering limited editability and failing to produce the structured assets required by professional workflows. We present Procedural VFX Generation with AI Agents, a framework that generates editable 2D and 3D VFX as structured After Effects projects rather than flattened videos. Our system adopts a two-stage agentic architecture: a Planner converts a text prompt and a reference image into a structured VFX plan, and an Executor translates this plan into concrete operations and parameters that construct an executable project file. To overcome the scarcity of high-quality VFX project data, we introduce a hybrid training strategy that learns effect composition and timeline structure from online tutorials and VFX assets from other software, while learning executable operations and parameters from artist-authored After Effects projects. We further construct a benchmark of 200 test cases, each pairing a text prompt with a reference image, covering 120 movie effects across 20 categories and 80 game effects. Experiments show that our trained agent achieves performance comparable to strong commercial baselines such as Claude Code and Codex, while producing structured, editable project files that integrate directly into professional production pipelines.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

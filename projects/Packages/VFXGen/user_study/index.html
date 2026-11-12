@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>视觉特效用户研究</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="compact-study.css">
+  <link rel="stylesheet" href="tutorial.css">
+  <script src="data.js" defer></script><script src="config.js" defer></script><script src="i18n.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" data-i18n="studyName">视觉特效用户研究</a>
+    <div id="progress" hidden><span id="progressText"></span><div id="steps" class="steps" aria-hidden="true"></div></div>
+    <div class="header-controls"><span id="saveStatus" class="small muted" data-i18n="trialCount">20 组对比</span><label class="language-control"><span class="visually-hidden">界面语言 / Interface language</span><select id="languageSelect" aria-label="界面语言 / Interface language"><option value="zh">中文</option><option value="en">English</option></select></label></div>
+  </header>
+  <main>
+    <section id="intro" class="intro" aria-labelledby="introTitle">
+      <h1 id="introTitle" data-i18n="introTitle">视觉特效生成结果评价</h1>
+      <p class="study-description" data-i18n="introDescription">每组包含一张参考图、一段文字要求，以及四个匿名视频。请分别从三个指标评价结果。</p>
+      <div class="study-details"><span data-i18n="trialsMeta">固定题库：20 组</span><span data-i18n="candidatesMeta">每组候选：4 个</span><span data-i18n="responsesMeta">每组回答：3 个独立单选题</span></div>
+      <section class="instructions" aria-labelledby="criteriaTitle">
+        <h2 id="criteriaTitle" data-i18n="criteriaTitle">评价指标</h2>
+        <p data-i18n="criteriaInstruction">每个指标分别选择一个最佳结果。三个指标可以选择相同或不同的视频。</p>
+        <ol class="criteria">
+          <li><strong data-i18n="overall_quality">视频整体质量</strong><p data-i18n="overallDefinition">仅评价视频本身的整体效果，包括视觉质量和动画表现，不将与参考图或文本的符合程度计入此项。</p></li>
+          <li><strong data-i18n="image_alignment">与图片的一致性</strong><p data-i18n="imageDefinition">评价视频与参考图在主体、外观、颜色和视觉风格等方面的一致程度。</p></li>
+          <li><strong data-i18n="text_alignment">与文本的一致性</strong><p data-i18n="textDefinition">评价视频对文字要求中描述的内容、属性和动态行为的符合程度。</p></li>
+        </ol>
+      </section>
+      <section class="instructions" aria-labelledby="procedureTitle">
+        <h2 id="procedureTitle" data-i18n="procedureTitle">操作说明</h2>
+        <ol class="procedure">
+          <li data-i18n="procedureWatch">阅读文字要求并查看参考图，再观看四个候选视频。可重复播放或同时播放。</li>
+          <li data-i18n="procedureChoose">候选以 A–D 标记，位置经过随机安排。同一组的三个指标使用相同的候选位置。</li>
+          <li data-i18n="procedureAdvance">完成三个指标后自动进入下一组。可返回修改答案；最后一组完成后自动提交。</li>
+          <li data-i18n="procedureLanguage">可随时使用右上角切换中英文，已选答案和视频顺序会保留。</li>
+        </ol>
+      </section>
+      <section class="start-section" aria-labelledby="startTitle">
+        <div><h2 id="startTitle" data-i18n="beginTitle">开始问卷</h2><p id="resumeText" data-i18n="resumeDescription">进度保存在当前浏览器，关闭页面后可回来继续。</p></div>
+        <div class="start-actions"><button id="start" class="primary" data-i18n="start">开始作答</button><button id="tutorialHelp" class="text-button" data-i18n="tutorialHelp">查看拖动演示</button><button id="reset" class="text-button" hidden data-i18n="reset">重新开始一份问卷</button></div>
+      </section>
+      <p class="data-note" data-i18n="dataNote">记录随机会话编号、界面语言、展示顺序、三个指标的选择和答题时长。</p>
+    </section>
+    <section id="tutorial" class="tutorial" hidden aria-labelledby="tutorialTitle">
+      <p class="small muted tutorial-kicker" data-i18n="tutorialKicker">作答前的小提示</p>
+      <h1 id="tutorialTitle" tabindex="-1" data-i18n="tutorialTitle">把评价标签拖到你选择的视频上</h1>
+      <p class="tutorial-description" data-i18n="tutorialDescription">按住下方的指标标签，拖到候选视频上松开。标签会显示在该视频下方。</p>
+      <div class="tutorial-scene" role="img" data-i18n-aria="tutorialAnimationLabel" aria-label="鼠标按住最佳整体效果标签，拖到示例候选 B 上松开，标签显示在 B 下方。">
+        <div class="tutorial-candidates" aria-hidden="true">
+          <div class="tutorial-candidate"><div class="tutorial-preview"><span class="tutorial-letter">A</span><span class="tutorial-play">▷</span><span data-i18n="tutorialExample">示例候选</span></div><div class="tutorial-mark-space"></div></div>
+          <div class="tutorial-candidate tutorial-target"><div class="tutorial-preview"><span class="tutorial-letter">B</span><span class="tutorial-play">▷</span><span data-i18n="tutorialExample">示例候选</span></div><div class="tutorial-mark-space"><span class="tutorial-mark"><span aria-hidden="true">✓</span> <span data-i18n="bestOverall">最佳整体效果</span></span></div></div>
+        </div>
+        <div class="tutorial-token tutorial-source" aria-hidden="true"><span class="tutorial-grip">⠿</span><span data-i18n="bestOverall">最佳整体效果</span></div>
+        <div class="tutorial-token tutorial-moving" aria-hidden="true"><span class="tutorial-grip">⠿</span><span data-i18n="bestOverall">最佳整体效果</span></div>
+        <div class="tutorial-cursor" aria-hidden="true"><span class="tutorial-press"></span><svg viewBox="0 0 28 36" width="28" height="36"><path d="M3 2 L3 28 L9 22 L14 33 L20 30 L15 20 L24 20 Z" fill="#304c68" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="tutorial-caption"><span class="small muted" data-i18n="tutorialExampleNote">仅演示操作，不计入答卷。</span><button id="tutorialMotion" class="text-button" type="button" aria-pressed="false">暂停演示</button></div>
+      <ol class="tutorial-steps"><li data-i18n="tutorialStepHold">按住指标标签</li><li data-i18n="tutorialStepMove">拖到候选视频</li><li data-i18n="tutorialStepRelease">松开，完成选择</li></ol>
+      <p class="tutorial-alternative" data-i18n="tutorialAlternative">也可以直接点选 A–D。手机上支持按住拖动，或先点指标、再点候选。同一个视频可以获得多个指标。</p>
+      <div class="tutorial-actions"><button id="tutorialBack" type="button" data-i18n="tutorialBack">返回说明</button><button id="tutorialContinue" class="primary" type="button" data-i18n="tutorialContinue">了解了，进入问卷</button></div>
+    </section>
+    <section id="study" hidden aria-labelledby="caseTitle">
+      <div class="section-heading"><h1 id="caseTitle"></h1><p class="case-identifiers small muted"><span id="caseLabel"></span><span id="sourceCaseLabel"></span></p></div>
+      <div class="workspace">
+        <aside class="reference" aria-labelledby="referenceTitle">
+          <h2 id="referenceTitle" class="panel-label" data-i18n="reference">参考图像</h2>
+          <a id="referenceLink" class="reference-image" href="#" target="_blank" rel="noopener" data-i18n-aria="openReference"><img id="referenceImage" alt="参考图像"></a>
+          <p class="reference-note" data-i18n="referenceNote">点击图像查看原图</p>
+          <div class="prompt"><h2 id="promptTitle" class="panel-label" data-i18n="promptTitle">文字要求</h2><p id="prompt" tabindex="0" aria-labelledby="promptTitle"></p><p id="promptNote" class="small muted prompt-note" data-i18n="promptTranslation">中文为英文特效描述的翻译。</p></div>
+        </aside>
+        <div class="comparison">
+          <div class="playbar"><h2 class="panel-label" data-i18n="candidateVideos">候选视频</h2><div class="play-actions"><button id="playAll" data-i18n="playAll">一起播放</button><button id="restartAll" data-i18n="restartAll">从头播放</button><button id="pauseAll" data-i18n="pauseAll">暂停</button></div></div>
+          <div id="videoGrid" class="video-grid"></div>
+          <p id="mediaStatus" class="small muted" role="status"></p><button id="reloadMedia" hidden data-i18n="reload">重新加载</button>
+        </div>
+      </div>
+      <section class="evaluation" aria-labelledby="evaluationTitle">
+        <div class="evaluation-heading"><h2 id="evaluationTitle" data-i18n="evaluationTitle">评价结果</h2><p id="interactionHint" class="small muted" data-i18n="interactionHint">拖动指标到视频，或直接点选 A–D。</p><span id="answeredCount" class="small muted" aria-live="polite"></span></div>
+        <div id="metricRows"></div>
+        <div class="evaluation-navigation"><button id="back" data-i18n="back">上一组</button><span id="choiceStatus" class="small muted" role="status"></span><button id="next" class="primary" data-i18n="next" disabled>下一组</button></div>
+      </section>
+    </section>
+    <section id="done" class="done" hidden aria-labelledby="doneTitle">
+      <h1 id="doneTitle" data-i18n="doneTitle">问卷已完成</h1>
+      <p data-i18n="doneDescription">您已完成 20 组对比、共 60 项评价。感谢参与。</p>
+      <div class="receipt"><div><h2 id="submitStatus" role="status"></h2><p id="submitDetail"></p></div><div class="receipt-id"><span class="small muted" data-i18n="sessionId">会话编号</span><code id="participantCode"></code></div></div>
+      <div class="done-actions"><button id="retry" class="primary" hidden data-i18n="retry">重试提交</button><button id="export" data-i18n="export">导出作答记录</button><button id="review" data-i18n="review">返回检查</button></div>
+      <p class="small muted" data-i18n="backupNote">记录保留在当前浏览器。如提交失败，可导出记录作为备份。</p>
+    </section>
+  </main>
+  <footer><span data-i18n="studyName">视觉特效用户研究</span><span data-i18n="footerCount">20 组对比 · 3 个评价指标</span></footer>
+</body></html>
